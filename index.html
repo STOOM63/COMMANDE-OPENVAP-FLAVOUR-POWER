@@ -37,7 +37,7 @@
             color: #555;
         }
 
-        input[type="text"], input[type="email"], input[type="file"] {
+        input[type="text"], input[type="file"] {
             padding: 10px;
             margin-top: 5px;
             border: 1px solid #cccccc;
@@ -88,14 +88,14 @@
             <label for="nom">Nom du vendeur:</label>
             <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
 
-            <label for="email">Adresse email du vendeur:</label>
-            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
-
             <label for="fichier1">Télécharger le fichier de commande 1:</label>
             <input type="file" id="fichier1" name="fichier1" accept=".xlsx,.xls,.csv" required>
 
             <label for="fichier2">Télécharger le fichier de commande 2:</label>
             <input type="file" id="fichier2" name="fichier2" accept=".xlsx,.xls,.csv">
+
+            <label for="fichier3">Télécharger le fichier de commande 3:</label>
+            <input type="file" id="fichier3" name="fichier3" accept=".xlsx,.xls,.csv">
 
             <button type="submit">Envoyer la commande</button>
         </form>
