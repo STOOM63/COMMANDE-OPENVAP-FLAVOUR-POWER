@@ -1,38 +1,27 @@
-function doPost(e) {
-  var nom = e.parameter.nom;
-  var email = e.parameter.email;
-  
-  // Liste des destinataires
-  var destinataires = ["contact@auvergne-phyto.fr", "fbernard@auvergne-phyto.fr", "qualite@auvergne-phyto.fr", "stoom63@orange.fr"];
-  
-  // Créer le corps du message par défaut
-  var message = "Bonjour,\n\nVous trouverez ci-joint les commandes FP et Openvap pour STOOM Michelin.\n\nEn vous souhaitant bonne réception.\n\nCordialement,\n" + nom + " (" + email + ")";
-  
-  // Obtenir la date du jour
-  var today = new Date();
-  var formattedDate = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-  
-  // Parcourir les destinataires et envoyer un email depuis contactstoom63@gmail.com
-  for (var i = 0; i < destinataires.length; i++) {
-    var emailDestinataire = destinataires[i];
-    
-    var emailOptions = {
-      to: emailDestinataire,
-      subject: "COMMANDE STOOM MICHELIN " + formattedDate,  // Objet avec la date
-      body: message,
-      from: "contactstoom63@gmail.com"  // Adresse de l'expéditeur
-    };
-    
-    // Ajouter les fichiers joints si disponibles
-    if (e.files && e.files.length > 0) {
-      emailOptions.attachments = [];
-      for (var j = 0; j < e.files.length; j++) {
-        emailOptions.attachments.push(e.files[j]);
-      }
-    }
-    
-    MailApp.sendEmail(emailOptions);
-  }
 
-  return ContentService.createTextOutput("Commande envoyée avec succès !");
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passer une commande</title>
+</head>
+<body>
+    <h1>Formulaire de commande fournisseur</h1>
+    <form action="https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec" method="POST" enctype="multipart/form-data">
+        <label for="nom">Nom du vendeur:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+
+        <label for="email">Adresse email du vendeur:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="fichier1">Télécharger le fichier de commande 1:</label>
+        <input type="file" id="fichier1" name="fichier1" accept=".xlsx,.xls,.csv" required><br><br>
+
+        <label for="fichier2">Télécharger le fichier de commande 2:</label>
+        <input type="file" id="fichier2" name="fichier2" accept=".xlsx,.xls,.csv"><br><br>
+
+        <button type="submit">Envoyer la commande</button>
+    </form>
+</body>
+</html>
