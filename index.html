@@ -1,27 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passer une commande</title>
+    <title>Formulaire de commande - STOOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        input[type="text"], input[type="email"], input[type="file"] {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="file"] {
+            border: none;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Formulaire de commande fournisseur</h1>
-    <form action="https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec" method="POST" enctype="multipart/form-data">
-        <label for="nom">Nom du vendeur:</label>
-        <input type="text" id="nom" name="nom" required><br><br>
 
-        <label for="email">Adresse email du vendeur:</label>
-        <input type="email" id="email" name="email" required><br><br>
+    <div class="container">
+        <h1>Passer une commande fournisseur</h1>
+        <form action="https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec" method="POST" enctype="multipart/form-data">
+            <label for="nom">Nom du vendeur:</label>
+            <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
 
-        <label for="fichier1">Télécharger le fichier de commande 1:</label>
-        <input type="file" id="fichier1" name="fichier1" accept=".xlsx,.xls,.csv" required><br><br>
+            <label for="email">Adresse email du vendeur:</label>
+            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
 
-        <label for="fichier2">Télécharger le fichier de commande 2:</label>
-        <input type="file" id="fichier2" name="fichier2" accept=".xlsx,.xls,.csv"><br><br>
+            <label for="fichier1">Télécharger le fichier de commande 1:</label>
+            <input type="file" id="fichier1" name="fichier1" accept=".xlsx,.xls,.csv" required>
 
-        <button type="submit">Envoyer la commande</button>
-    </form>
+            <label for="fichier2">Télécharger le fichier de commande 2:</label>
+            <input type="file" id="fichier2" name="fichier2" accept=".xlsx,.xls,.csv">
+
+            <button type="submit">Envoyer la commande</button>
+        </form>
+        <div class="footer">
+            <p>STOOM Clermont-Ferrand © 2024</p>
+        </div>
+    </div>
+
 </body>
 </html>
