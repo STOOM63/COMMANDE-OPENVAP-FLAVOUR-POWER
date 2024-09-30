@@ -5,92 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de commande - STOOM</title>
     <style>
-        /* Dégradé de fond */
+        /* Dégradé d'arrière-plan */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* Conteneur central */
+        /* Conteneur du formulaire */
         .container {
-            width: 40%;
-            margin: 50px auto;
-            padding: 30px;
+            width: 100%;
+            max-width: 600px;
             background-color: #ffffff;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
             border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             text-align: center;
         }
 
-        /* Titre principal */
+        /* Titre */
         h1 {
-            font-size: 1.8em;
-            color: #333333;
+            font-size: 2em;
+            color: #333;
             margin-bottom: 20px;
         }
 
-        /* Style des étiquettes */
+        /* Style des labels */
         label {
+            display: block;
             margin-top: 15px;
             font-size: 1.1em;
             color: #555;
-            display: block;
             text-align: left;
-            margin-bottom: 8px;
         }
 
-        /* Style des champs de texte et des fichiers */
+        /* Champs de texte et fichiers */
         input[type="text"], input[type="file"] {
-            padding: 12px;
             width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #cccccc;
+            padding: 12px;
+            margin-top: 8px;
             border-radius: 6px;
+            border: 1px solid #ddd;
             font-size: 1em;
-            box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.05);
-            transition: border-color 0.3s ease-in-out;
-        }
-
-        /* Changement de bordure lors de la sélection */
-        input[type="text"]:focus, input[type="file"]:focus {
-            border-color: #007BFF;
             outline: none;
+            transition: border-color 0.3s;
         }
 
-        /* Style du bouton d'envoi */
+        /* Focus sur les champs */
+        input[type="text"]:focus, input[type="file"]:focus {
+            border-color: #74ebd5;
+        }
+
+        /* Style du bouton de soumission */
         button {
             width: 100%;
             padding: 15px;
-            background-color: #007BFF;
+            margin-top: 20px;
+            background-color: #74ebd5;
             color: white;
-            border: none;
-            border-radius: 6px;
             font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0px 5px 10px rgba(0, 123, 255, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(116, 235, 213, 0.4);
         }
 
-        /* Effet de survol du bouton */
+        /* Effet hover du bouton */
         button:hover {
-            background-color: #0056b3;
-            box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.5);
+            background-color: #4fb4a7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(116, 235, 213, 0.5);
         }
 
-        /* Style du pied de page */
+        /* Pied de page */
         .footer {
-            text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
             color: #999;
         }
 
-        /* Ajustement pour les petits écrans */
+        /* Adaptation pour les petits écrans */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -98,18 +106,18 @@
 <body>
 
     <div class="container">
-        <h1>Passer une commande fournisseur</h1>
+        <h1>Commande fournisseur</h1>
         <form action="https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec" method="POST" enctype="multipart/form-data">
             <label for="nom">Nom du vendeur :</label>
             <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
 
-            <label for="fichier1">Télécharger le fichier de commande 1 :</label>
+            <label for="fichier1">Fichier de commande 1 :</label>
             <input type="file" id="fichier1" name="fichier1" accept=".xlsx,.xls,.csv" required>
 
-            <label for="fichier2">Télécharger le fichier de commande 2 :</label>
+            <label for="fichier2">Fichier de commande 2 :</label>
             <input type="file" id="fichier2" name="fichier2" accept=".xlsx,.xls,.csv">
 
-            <label for="fichier3">Télécharger le fichier de commande 3 :</label>
+            <label for="fichier3">Fichier de commande 3 :</label>
             <input type="file" id="fichier3" name="fichier3" accept=".xlsx,.xls,.csv">
 
             <button type="submit">Envoyer la commande</button>
